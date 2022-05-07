@@ -3,7 +3,7 @@
 
 
 void failas() {
-    vector <Studentas> list, protingi, vargsiukai;
+    vector <Studentas> protingi, vargsiukai;
     Studentas nw;
     string eilute, tip; int t_i = 0;
     double sukurimas = 0, ivedimas = 0, pazangumas = 0, isvedimas1 = 0, isvedimas2 = 0;
@@ -31,8 +31,9 @@ void failas() {
     std::ifstream fd(pav);
     try {
         if (fd.is_open()) {
-            int nd, egz;
+            double nd; int egz;
             int stulpeliu_sk = 0, mokiniu_sk = 0;
+            string vardas, pavarde;
             std::getline(fd, eilute);
             std::stringstream x;
 
@@ -50,19 +51,22 @@ void failas() {
 
 
             for (int i = 0; i < mokiniu_sk; i++) {
-                nw.sum = 0;
-                fd >> nw.vardas >> nw.pavarde;
+                nw.setSumNull();
+                fd >> vardas >> pavarde;
+                nw.setVardas(vardas);
+                nw.setPavarde(pavarde);
                 for (int j = 0; j < stulpeliu_sk - 3; j++) {
                     fd >> nd;
-                    nw.nd.push_back(nd);
-                    nw.sum = nw.sum + nd;
+                    nw.setNd(nd);
+                    nw.addSum(nd);
                 }
 
-                fd >> nw.egz;
+                fd >> egz;
+                nw.setEgz(egz);
                 vidurkis(nw);
                 mediana(nw);
-                nw.nd.clear();
-                list.push_back(nw);
+                nw.clearNd();
+                protingi.push_back(nw);
 
             }
             fd.close();
@@ -70,8 +74,8 @@ void failas() {
             std::chrono::duration<double> diff = end - start;
             ivedimas = diff.count();
 
-            sort_mok(list);
-            vertinimas(list, protingi, vargsiukai, pazangumas);
+            sort_mok(protingi);
+            vertinimas(protingi, vargsiukai, pazangumas);
             file_isvedimas(protingi, vargsiukai, mokiniu_sk, isvedimas1, isvedimas2);
             laikas(sukurimas, ivedimas, pazangumas, isvedimas1, isvedimas2, mokiniu_sk);
         }
@@ -102,15 +106,15 @@ void ar_failas(int& f) {
 void isvestis(Studentas& temp)
 {
 
-    cout << setw(20) << temp.vardas << setw(20) << temp.pavarde << setw(17) << std::fixed << std::setprecision(2) << temp.rez
-        << temp.med << "/n";
+    cout << setw(20) << temp.getVardas() << setw(20) << temp.getPavarde() << setw(17) << std::fixed << std::setprecision(2) << temp.getRez()
+        << temp.getMed() << "/n";
 }
 
 void vidurkis(Studentas& temp)
 {
-    size_t nd_sk = temp.nd.size();
-    double nd_vid = (double)temp.sum / nd_sk;
-    temp.rez = 0.4 * nd_vid + 0.6 * temp.egz;
+    size_t nd_sk = temp.getNdSize();
+    double nd_vid = (double)temp.getSum() / nd_sk;
+    temp.setRez(0.4 * nd_vid + 0.6 * temp.getEgz()) ;
 
 }
 
@@ -120,28 +124,28 @@ void vidurkis(Studentas& temp)
 
 
 bool compare_name(const Studentas& a, const Studentas& b) {
-    return a.vardas < b.vardas;
+    return a.getVardas() < b.getVardas();
 }
 
 bool compare_last(const Studentas& a, const Studentas& b) {
-    return a.pavarde < b.pavarde;
+    return a.getPavarde() < b.getPavarde();
 }
 
 
 void mediana(Studentas& temp)
 {
     double med;
-    sort(temp.nd.begin(), temp.nd.end());
-    if (temp.nd.size() % 2 == 0)
+    temp.sortNd();
+    if (temp.getNdSize() % 2 == 0)
     {
-        med = (temp.nd[temp.nd.size() / 2 - 1] + temp.nd[temp.nd.size() / 2]) / 2;
+        med = (temp.getNd(temp.getNdSize() / 2 - 1) + temp.getNd(temp.getNdSize() / 2)) / 2;
     }
     else
     {
-        med = temp.nd[temp.nd.size() / 2];
+        med = temp.getNd(temp.getNdSize() / 2);
     }
 
-    temp.med = 0.4 * med + 0.6 * temp.egz;
+    temp.setMed(0.4 * med + 0.6 * temp.getEgz());
 }
 
 
@@ -177,8 +181,8 @@ void file_isvedimas(vector<Studentas> protingi, vector<Studentas> vargsiukai, in
 
         auto start = hrClock::now();
         for (vector<Studentas>::size_type i = 0; i != protingi.size(); i++) {
-            fr << setw(20) << protingi[i].vardas << setw(20) << protingi[i].pavarde << setw(17) << std::fixed << std::setprecision(2) << protingi[i].rez
-                << protingi[i].med << "\n";
+            fr << setw(20) << protingi[i].getVardas() << setw(20) << protingi[i].getPavarde() << setw(17) << std::fixed << std::setprecision(2) << protingi[i].getRez()
+                << protingi[i].getMed() << "\n";
         }
 
         auto end = hrClock::now();
@@ -187,8 +191,8 @@ void file_isvedimas(vector<Studentas> protingi, vector<Studentas> vargsiukai, in
 
         auto start1 = hrClock::now();
         for (vector<Studentas>::size_type i = 0; i != vargsiukai.size(); i++) {
-            fu << setw(20) << vargsiukai[i].vardas << setw(20) << vargsiukai[i].pavarde << setw(17) << std::fixed << std::setprecision(2) << vargsiukai[i].rez
-                << vargsiukai[i].med << "\n";
+            fu << setw(20) << vargsiukai[i].getVardas() << setw(20) << vargsiukai[i].getPavarde() << setw(17) << std::fixed << std::setprecision(2) << vargsiukai[i].getRez()
+                << vargsiukai[i].getMed() << "\n";
         }
         auto end1 = hrClock::now();
         std::chrono::duration<double> diff1 = end - start;
@@ -200,18 +204,20 @@ void file_isvedimas(vector<Studentas> protingi, vector<Studentas> vargsiukai, in
 
 }
 
-void vertinimas(vector<Studentas> list, vector<Studentas>& protingi, vector<Studentas>& vargsiukai, double& pazangumas) {
+void vertinimas(vector<Studentas>& protingi, vector<Studentas>& vargsiukai, double& pazangumas) {
     auto start = hrClock::now();
-    for (auto& kint : list) { //(auto &kint:list)
-        if (kint.rez < 5) vargsiukai.push_back(kint);
-        else {
-            protingi.push_back(kint);
+
+    for (auto& kint : protingi) { //(auto &kint:list)
+        if (kint.getRez() < 5) {
+            vargsiukai.push_back(kint);
         }
     }
+
+    protingi.erase(std::remove_if(protingi.begin(), protingi.end(), Maziau), protingi.end());
+
     auto end = hrClock::now();
     std::chrono::duration<double> diff = end - start;
     pazangumas = diff.count();
-    list.clear();
 
 }
 
@@ -228,4 +234,8 @@ void laikas(double sukurimas, double ivedimas, double rusiavimas, double isvedim
     printf("Protingu isvedimas i faila: %f s\n", isvedimas1);
     printf("Vargsiuku isvedimas i faila: %f s\n", isvedimas2);
     printf("\nVisos programos vykdymas uztruko: %f", sukurimas + ivedimas + rusiavimas + isvedimas1 + isvedimas2);
+}
+
+bool Maziau(const Studentas& a) {
+    return a.getRez() < 5;
 }

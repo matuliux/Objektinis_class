@@ -53,10 +53,12 @@ void tikr_random(string& ar_random) {
 
 void ivestis(Studentas& temp)
 {
-    int nd, egz;
+    int nd, egz; string vardas, pavarde;
     int i = 0;
-    cout << "Iveskite varda: "; cin >> temp.vardas;
-    cout << "Iveskite pavarde: "; cin >> temp.pavarde;
+    cout << "Iveskite varda: "; cin >> vardas;
+    cout << "Iveskite pavarde: "; cin >> pavarde;
+    temp.setVardas(vardas);
+    temp.setPavarde(pavarde);
     string stop, ar_random;
     tikr_random(ar_random);
 
@@ -68,8 +70,8 @@ void ivestis(Studentas& temp)
                 if (nd > 0 && nd <= 10)
                 {
 
-                    temp.nd.push_back(nd);
-                    temp.sum += nd;
+                    temp.setNd(nd);
+                    temp.addSum(nd);
 
                     i++;
                     cout << "Ar dar yra pazymiu? 1-taip, 0-ne: "; cin >> stop;
@@ -101,7 +103,7 @@ void ivestis(Studentas& temp)
             if (egz) {
                 if (egz > 0 && egz <= 10)
                 {
-                    temp.egz = egz;
+                    temp.setEgz(egz);
                     index = 1;
 
                 }
@@ -153,12 +155,12 @@ void ivestis(Studentas& temp)
         {
             nd = dist(mt);
             cout << "Sugeneruotas " << i + 1 << "-as pazymys: " << nd << endl;
-            temp.nd.push_back(nd);
-            temp.sum = temp.sum + nd;
+            temp.setNd(nd);
+            temp.addSum(nd);
         }
 
-        temp.egz = dist(mt);
-        cout << "Atsitiktinai sugeneruotas egzamino pazymus: " << temp.egz << endl;
+        temp.setEgz(dist(mt));
+        cout << "Atsitiktinai sugeneruotas egzamino pazymus: " << temp.getEgz() << endl;
 
 
     }
