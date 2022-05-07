@@ -233,7 +233,7 @@ void laikas(double sukurimas, double ivedimas, double rusiavimas, double isvedim
     printf("%d Studentu isrusiavimas i vargsus ir protingus uztruko: %f s\n", sk, rusiavimas);
     printf("Protingu isvedimas i faila: %f s\n", isvedimas1);
     printf("Vargsiuku isvedimas i faila: %f s\n", isvedimas2);
-    printf("\nVisos programos vykdymas uztruko: %f", sukurimas + ivedimas + rusiavimas + isvedimas1 + isvedimas2);
+    printf("\nVisos programos vykdymas uztruko: %f\n", sukurimas + ivedimas + rusiavimas + isvedimas1 + isvedimas2);
 }
 
 bool Maziau(const Studentas& a) {
