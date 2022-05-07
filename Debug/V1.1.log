@@ -1,0 +1,8 @@
+﻿  Source.cpp
+  file_gen.cpp
+  funkcijos_file.cpp
+C:\Users\matas\OneDrive\Stalinis kompiuteris\Matas_dokumentai_VU\1_Kursas_2_pusmetis\Objektinis programavimas\Laboratoriniai\V1.1\funkcijos_file.cpp(61,31): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  funkcijos_manual.cpp
+C:\Users\matas\OneDrive\Stalinis kompiuteris\Matas_dokumentai_VU\1_Kursas_2_pusmetis\Objektinis programavimas\Laboratoriniai\V1.1\funkcijos_manual.cpp(163,72): error C2039: 'egz': is not a member of 'Studentas'
+C:\Users\matas\OneDrive\Stalinis kompiuteris\Matas_dokumentai_VU\1_Kursas_2_pusmetis\Objektinis programavimas\Laboratoriniai\V1.1\header.h(6): message : see declaration of 'Studentas'
+  Generating Code...

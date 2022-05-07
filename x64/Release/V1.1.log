@@ -1,0 +1,15 @@
+﻿  Source.cpp
+C:\Users\matas\OneDrive\Stalinis kompiuteris\Matas_dokumentai_VU\1_Kursas_2_pusmetis\Objektinis programavimas\Laboratoriniai\V1.1\header.h(32,28): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  file_gen.cpp
+C:\Users\matas\OneDrive\Stalinis kompiuteris\Matas_dokumentai_VU\1_Kursas_2_pusmetis\Objektinis programavimas\Laboratoriniai\V1.1\header.h(32,28): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  funkcijos_file.cpp
+C:\Users\matas\OneDrive\Stalinis kompiuteris\Matas_dokumentai_VU\1_Kursas_2_pusmetis\Objektinis programavimas\Laboratoriniai\V1.1\header.h(32,28): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\matas\OneDrive\Stalinis kompiuteris\Matas_dokumentai_VU\1_Kursas_2_pusmetis\Objektinis programavimas\Laboratoriniai\V1.1\funkcijos_file.cpp(61,31): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  funkcijos_manual.cpp
+C:\Users\matas\OneDrive\Stalinis kompiuteris\Matas_dokumentai_VU\1_Kursas_2_pusmetis\Objektinis programavimas\Laboratoriniai\V1.1\header.h(32,28): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  Generating code
+  6 of 523 functions ( 1.1%) were compiled, the rest were copied from previous compilation.
+    1 functions were new in current compilation
+    4 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  V1.1.vcxproj -> C:\Users\matas\OneDrive\Stalinis kompiuteris\Matas_dokumentai_VU\1_Kursas_2_pusmetis\Objektinis programavimas\Laboratoriniai\V1.1\x64\Release\V1.1.exe

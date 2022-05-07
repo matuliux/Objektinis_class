@@ -1,0 +1,10 @@
+﻿  file_gen.cpp
+  funkcijos_file.cpp
+C:\Users\matas\OneDrive\Stalinis kompiuteris\Matas_dokumentai_VU\1_Kursas_2_pusmetis\Objektinis programavimas\Laboratoriniai\V1.1\funkcijos_file.cpp(61,31): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  funkcijos_manual.cpp
+  Source.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 522 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  V1.1.vcxproj -> C:\Users\matas\OneDrive\Stalinis kompiuteris\Matas_dokumentai_VU\1_Kursas_2_pusmetis\Objektinis programavimas\Laboratoriniai\V1.1\Release\V1.1.exe
