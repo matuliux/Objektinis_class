@@ -22,6 +22,9 @@ Source.cpp: Programos paleidimo funkcija
 
 V1.2
 Studentas klasei sukurtas distruktorius, kopijavimo konstruktorius ir priskirimo kontruktorius  
+Sie atnaujinimai padaro programa universalesne, palengvina programuotoju darba su ta pacia programa  
+![image](https://user-images.githubusercontent.com/100164021/167295617-4f8ce693-e820-47b7-82f1-c0c88f6706f8.png)
+
 
 
 
