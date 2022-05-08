@@ -1,4 +1,4 @@
-# V1.1
+# V1.2
 V1.0 programa naudojanti vektorius ir 2 rusiavimo strategija modifikuota pakeiciant struct i class.  
 Programoje realizuoti set'eriai ir get'eriai suteikia programai universalumo.  
 Programos paleidžiamąjį failą source.exe galima sukurti atsidarius konsolę visų failų aplanke ir parašyti komandą make vector.  
@@ -20,7 +20,7 @@ funkcijos_file.cpp: aprasytos funkcijos naudojamos dirbant su failais ir bendros
 funkcijos_manual.cpp: aprasytos funkcijos naudojamos dirbant su duomenimis ivestais ranka  
 Source.cpp: Programos paleidimo funkcija
 
-#V1.2
+V1.2
 Studentas klasei sukurtas distruktorius, kopijavimo konstruktorius ir priskirimo kontruktorius  
 
 
